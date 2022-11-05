@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ACNE -ROSACEA CLASSIFICATION</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #f{
+      align-content: center;
+    }
+    .container {
+  margin: auto;
+  width: 20%;
+  border: 3px solid white;
+  background-color: #71d8c5;
+  border-radius: 25px;
+  padding: 80px;
+  align-content: center;
+  text-align: center;
+}
+
+.b1 {
+  background-color:#f3a808;
+  border: none;
+  border-radius: 25px;
+  color: rgb(255, 255, 255);
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+body{
+  background-color:white;
+}
+h1{
+  
+  font-style: Arial;
+  color: #e67300
+
+}
+  </style>
+</head>
+<body>
+  <script>
+    var loadFile = function(event) {
+      var image = document.getElementById('output');
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    </script>
+  <br><br>
+  <h1 color:  ><center>Diabetic Retinopathy PREDICTION</center></h1><br>
+<div class="container">
+ 
+  <br><br>
+  <form  action="{{ url_for('login') }}" method="post" enctype="multipart/form-data" id="f">
+
+   
+    <center><label><b>Upload Your  Image :</b></label><br><br></center>
+               
+    <center><input type="file"  accept="image/*" name="my_image" id="my_image" onchange="loadFile(event)" ></center><br><br> 
+    <center><p><img id="output" width="200" /></p></center>
+  
+      <center><button type="submit" class="b1" onclick="alert('uploaded successfully !!')">Submit</button> </center>
+      
+    
+  </form>
+  
+{% if prediction %}
+  
+<h2> Prediction   : <i> {{prediction}} </i></h2>
+   
+{% endif %}
+   </div>
+  </center>
+</body>
